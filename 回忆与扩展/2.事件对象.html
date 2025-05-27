@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.事件对象</title>
+</head>
+<body>
+    <button id="btn">点我</button>
+    <script>
+        const btn = document.getElementById('btn');
+ 
+        // 添加事件监听
+        btn.addEventListener('click',function(x){
+            console.log('你点我了',x);
+            console.log(x.target); // 事件对象
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../vue.js"></script>
+    <title>2.事件对象</title>
+  </head>
+  <body>
+    <!-- 准备好一个容器 -->
+    <div id="demo">
+      <h2>{{school}}坐落于{{address}}</h2>
+      <button v-on:click="showTel">查看联系方式1</button>
+      <!-- <button @click="showTel">查看联系方式2</button> -->
+    </div>
+
+    <script>
+      new Vue({
+        el: '#demo',
+        // data若写成函数，请写普通函数，因为是vue所管理的（不要写成箭头函数 ）
+        data: {
+          school: '尚硅谷',
+          address: '宏福科技园',
+          tel: '010-56253825',
+        },
+        // methods中的每一个方法，也都请写成普通函数，因为是vue所管理的，普通函数才拥有this关键字
+        methods: { 
+          showTel(event) {
+            console.log('@@',this);
+            // alert(this.tel)
+            // console.log(event);
+          }
+        }
+      })
+      console.log(this);
+      
+    </script>
+  </body>
+</html>
+
+<!-- 
+1.vue在触发事件回调时，会传入一个默认的参数 -- 事件对象（event）
+    通常情况下，由vue所管理的函数，请务必写成普通函数，这样才能保证：this 是 vm，一旦写成了箭头函数，this就不再是vm了
+-->

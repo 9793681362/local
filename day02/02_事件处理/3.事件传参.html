@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.事件传参数</title>
+     <script src="../../vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <h2>{{school}}坐落于{{address}}</h2>
+        <button @click="showTel">查看联系方式（编码时不传参）</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#demo',
+            data:{
+                school:"尚硅谷",
+                address:'宏福科技园',
+                tel:'010-56253825'
+            },
+            methods:{
+                showTel(e){
+                    alert(this.tel)
+                    console.log(e); // 事件对象
+                }
+            }
+        })
+    </script>
+</body>
+</html>

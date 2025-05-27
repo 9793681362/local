@@ -10,7 +10,8 @@
     <!-- 准备好一个容器 -->
     <div id="demo">
       <h2>{{school}}坐落于{{address}}</h2>
-      <button v-on:click="showTel">查看联系方式</button>
+      <button v-on:click="showTel">查看联系方式1</button>
+      <button @click="showTel">查看联系方式2</button>
     </div>
 
     <script>
@@ -19,14 +20,16 @@
         data: {
           school: '尚硅谷',
           address: '宏福科技园',
-          tel: '010-56253825'
+          tel: '010-56253825',
         },
-        methods: {
+        methods: { 
           showTel() {
-            alert('电话电话电话')
+            alert(this.tel)
           }
         }
       })
+      console.log(this);
+      
     </script>
   </body>
 </html>
