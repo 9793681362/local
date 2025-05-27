@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>认识一下vm</title>
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <h2>学校名称：{{school}}，坐落于：{{address}}</h2>
+      <h3>测试1：{{_c}}</h3>
+      <h3>测试2：{{__v_skip}}</h3>
+      <h3>测试3：{{x}}</h3>
+      <h3>测试4：{{q}}</h3>
+      <h3>测试5：{{toString}}</h3>
+    </div>
+
+    <script type="text/javascript" >
+      Object.prototype.q = 666
+      Vue.prototype.x = 999
+
+      let vm = new Vue({
+        el:'#demo',
+        data:{
+          school:'尚硅谷',
+          address:'宏福科技园'
+        }
+      })
+      console.log(vm)
+    </script>
+  </body>
+</html>

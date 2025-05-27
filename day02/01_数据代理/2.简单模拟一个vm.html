@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.简单模拟一个vm</title>
+  </head>
+  <body>
+    <script>
+      let vm = {
+        $mazhiqiang: '小马',
+        $jing: '晶哥',
+        $qiang: '强哥',
+        _data: {
+          school: '尚硅谷',
+          address: '宏福科技园'
+        },
+        _yuge: '帅气',
+        _feige: '有钱'
+      }
+      Object.defineProperty(vm, 'school', {
+        get() {
+          return vm._data.school
+        },
+        set(value) {
+          vm._data.school = value
+        }
+      })
+      Object.defineProperty(vm, 'address', {
+        get() {
+          return vm._data.address
+        },
+        set(value) {
+          vm._data.address = value
+        }
+      })
+      console.log(vm.school)
+      console.log(vm.address)
+    </script>
+  </body>
+</html>

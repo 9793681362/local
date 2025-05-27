@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+  </head>
+  <body>
+    <script type="text/javascript" >
+      let person = {name:'马志强',sex:'男'}
+
+      // 给指定对象添加属性，并且可对属性进行“高级定制”
+      Object.defineProperty(person,'age',{
+        value:18,
+        enumerable:true, //控制属性是否可以枚举（参与遍历），默认值是false
+        writable:true, //控制属性是否可以修改
+        configurable:true //控制属性是否可以被删除
+      })
+
+      delete person.age
+      console.log(person)
+      
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>2.v-bind的简写</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <!-- 插值语法（极其简单）：专门用于向【标签体】中插入内容 -->
+      <h2>{{school}}坐落于：{{address}}</h2>
+      <hr>
+      <!-- 指令语法（略微复杂）：专门用于向【标签体】 或 【标签属性】中插入内容 -->
+      <a 
+        :href="url"
+        a="1+1"
+        :b="1+1"
+        c="url"
+        :d="url"
+        e="url.toUpperCase()"
+        :f="url.toUpperCase()"
+      >
+        点我去{{school}}学习
+      </a>
+    </div>
+
+    <script type="text/javascript" >
+      new Vue({
+        el:'#demo',
+        data:{
+          school:'尚硅谷',
+          address:'宏福科技园',
+          url:'http://www.atguigu.com'
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>1.何为数据代理</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 概念：通过一个对象(obj1)代理对另一个对象(obj2)中属性的操作（读/写）。
+      // 需求：想通过obj1也能：读取obj2中的house、修改obj2中的house
+
+      let obj1 = { car: '雅迪' } //中介 =======> 代理
+      let obj2 = { house: '大别墅' } //房东
+
+      Object.defineProperty(obj1, 'house', {
+        get() {
+          return obj2.house
+        },
+        set(value) {
+          obj2.house = value
+        }
+      })
+
+      console.log(obj1)
+      console.log(obj2)
+    </script>
+  </body>
+</html>

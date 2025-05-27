@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>3.分析Hello效果</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div class="demo">
+      <h1>Hello，{{school}}，坐落于：{{address}}</h1>
+      <h2>测试1：{{1}}</h2>
+      <h2>测试2：{{a}}</h2>
+      <h2>测试3：{{a >= 18 ? '成年' : '未成年'}}</h2>
+      <h2>测试4：{{200 - 2}}</h2>
+      <h2>测试5：200 - 2</h2>
+      <h2>测试6：{{school.toUpperCase()}}</h2>
+    </div>
+
+    <!-- 使用Vue -->
+    <script type="text/javascript" >
+      // 创建一个Vue实例对象
+      new Vue({
+        el:'.demo', //el（element）用于指定当前Vue实例服务于哪个容器，值为css选择器字符串
+        data:{ //data用于配置数据，数据可以在容器中直接使用，值暂时写成一个对象
+          school:'atguigu',
+          address:'宏福科技园',
+          a:18
+        }
+      })
+    </script>
+  </body>
+</html>

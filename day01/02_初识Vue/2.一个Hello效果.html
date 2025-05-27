@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>2.一个Hello效果</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 
+      总结：
+        1. 想让Vue工作就必须创建一个Vue实例，且要传入一个配置对象。
+        2. demo容器中的代码，依然符合html规范，但其中混入了一些特殊的Vue语法，demo容器中的代码也称之为【模板】
+        3. el（element）用于指定当前Vue实例服务于哪个容器，值为css选择器字符串
+        4. data用于配置数据，数据可以在容器中直接使用，值暂时写成一个对象
+    -->
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <h1>Hello，{{school}}，坐落于：{{address}}</h1>
+      <input type="text">
+    </div>
+
+    <!-- 使用Vue -->
+    <script type="text/javascript" >
+      // 创建一个Vue实例对象
+      new Vue({
+        el:'#demo', //el（element）用于指定当前Vue实例服务于哪个容器，值为css选择器字符串
+        data:{ //data用于配置数据，数据可以在容器中直接使用，值暂时写成一个对象
+          school:'尚硅谷',
+          address:'宏福科技园'
+        }
+      })
+    </script>
+  </body>
+</html>

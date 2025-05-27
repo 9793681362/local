@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>数据绑定</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <h1>欢迎来到：{{school}}</h1>
+      <!-- 学校名（单向绑定）：<input type="text" v-bind:value="school"> <br> -->
+      <!-- 学校名（双向绑定）：<input type="text" v-model:value="school"> -->
+      <hr>
+      学校名（单向绑定）：<input type="text" :value="school"> <br>
+      学校名（双向绑定）：<input type="text" v-model="school">
+      <hr>
+      <!-- 下面这行代码是错误的，因为v-model只能用在表单类元素上 -->
+      <!-- <h1 v-model:abc="school">学校名：{{school}}</h1> -->
+    </div>
+
+    <script type="text/javascript" >
+      new Vue({
+        el:'#demo',
+        data:{
+          school:'尚硅谷',
+        }
+      })
+    </script>
+  </body>
+</html>

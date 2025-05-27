@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.Vue中的数据代理</title>
+    <script src="../../vue.js"></script>
+  </head>
+  <body>
+    <dib id="demo"> {{_data.school}}坐落于{{address}} </dib>
+    <script>
+      // 我们便携代码时，data中缩写的数据，被底层收到了，并且放在了vm的_data中
+      let vm = new Vue({
+        el: '#demo',
+        data: {
+          school: '尚硅谷1',
+          address: '宏福科技园'
+        }
+      })
+      console.log(vm._data.school)
+      console.log(vm._data.address)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>1.el的三种写法</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <h2>学校名称：{{school}}</h2>
+    </div>
+
+    <script type="text/javascript" >
+      new Vue({
+        // el的第一种写法：写css选择器字符串
+        // el:'#demo',
+
+        // el的第二种写法：写一个真实的DOM元素
+        // el:document.getElementById('demo'),
+        
+        data:{
+          school:'尚硅谷'
+        }
+        // el的第三种写法，不编写el配置，靠$mount去指定容器
+      }).$mount('#demo')
+    </script>
+  </body>
+</html>

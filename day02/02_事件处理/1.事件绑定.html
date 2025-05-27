@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../../vue.js"></script>
+    <title>1.事件绑定</title>
+  </head>
+  <body>
+    <!-- 准备好一个容器 -->
+    <div id="demo">
+      <h2>{{school}}坐落于{{address}}</h2>
+      <button id="btn">查看联系方式</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: '#demo',
+        data: {
+          school: '尚硅谷',
+          address: '宏福科技园',
+          tel: '010-56253825'
+        }
+      })
+
+      const btn = document.getElementById('btn')
+      btn.onclick = () => {
+        alert('@@')
+      }
+    </script>
+  </body>
+</html>

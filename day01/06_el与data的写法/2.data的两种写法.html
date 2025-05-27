@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>2.data的两种写法</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <h2>学校名称：{{school}}</h2>
+    </div>
+
+    <script type="text/javascript" >
+      new Vue({
+        el:'#demo',
+
+        // data的第一种写法：写成一个对象
+        data:{
+          school:'尚硅谷'
+        }
+
+        // data的第二种写法：写成一个函数
+        /* data(){
+          return {
+            school:'尚硅谷'
+          }
+        } */
+      })
+    </script>
+  </body>
+</html>

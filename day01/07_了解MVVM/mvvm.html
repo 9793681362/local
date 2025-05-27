@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>mvvm</title>
+    <!-- 引入Vue -->
+    <script type="text/javascript" src="../../vue.js"></script>
+  </head>
+  <body>
+    <!-- 准备一个容器 -->
+    <div id="demo">
+      <h2>学校名称：{{school}}</h2>
+    </div>
+
+    <script type="text/javascript" >
+      let vm = new Vue({
+        el:'#demo',
+        data:{
+          school:'尚硅谷'
+        }
+      })
+      // vm.$mount()
+    </script>
+  </body>
+</html>
