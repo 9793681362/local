@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.事件传参数</title>
-     <script src="../../vue.js"></script>
-</head>
-<body>
+    <script src="../../vue.js"></script>
+  </head>
+  <body>
     <div id="demo">
-        <h2>{{school}}坐落于{{address}}</h2>
-        <button @click="showTel">查看联系方式（编码时不传参）</button>
+      <h2>{{school}}坐落于{{address}}</h2>
+      <button @click="showTel">查看联系方式（编码时不传参）</button>
+      <br /><br />
+      <button @click="showTel2(6)">查看联系方式2(传一个参数)</button
+      ><br /><br />
+      <button @click="showTel3(6,7,8,9)">查看联系方式3(传多个参数)</button>
+      <br /><br />
+      <button @click="showTel4(100,$event)">
+        查看联系方式4(传参的同时保留事件对象)
+      </button>
+      <br /><br />
+      <button @click="showTel5(school,tel)">
+        查看联系方式5(传递的参数也可以是data中的)
+      </button>
     </div>
     <script>
-        new Vue({
-            el:'#demo',
-            data:{
-                school:"尚硅谷",
-                address:'宏福科技园',
-                tel:'010-56253825'
-            },
-            methods:{
-                showTel(e){
-                    alert(this.tel)
-                    console.log(e); // 事件对象
-                }
-            }
-        })
+      new Vue({
+        el: '#demo',
+        data: {
+          school: '尚硅谷',
+          address: '宏福科技园',
+          tel: '010-56253825'
+        },
+        methods: {
+          // 绑定事件时，我们程序员没有给showTel1传递任何参数，但showTel1依然会收到一个event
+          showTel1(e) {
+            alert(this.tel)
+            console.log(e) // e 是 事件对象
+          },
+          // 绑定事件时，我们程序员给showTel2传递一个参数，showTel就会收到一个参数
+          showTel2(n) {
+            alert(this.tel)
+            console.log(n)
+          },
+          // 绑定事件时，我们程序员给showTel3传递多个参数，showTel3就会收到多个参数
+          showTel3(n1, n2, n3, n4) {
+            alert(this.tel)
+            console.log(n1, n2, n3, n4)
+          },
+          // 绑定事件时，我们程序员有给showTel4传递了个参数+事件对象，showTel4就会收到参数+事件对象
+          showTel4(n, e) {
+            alert(this.tel)
+            console.log(n, e)
+          },
+          // 绑定事件时，我们程序员有给showTel5传递了data中的数据，showTel5就会接收到对应的数据
+          showTel5(xuexiao, dianhua) {
+            alert(dianhua)
+            console.log(xuexiao)
+          }
+        }
+      })
     </script>
-</body>
+  </body>
 </html>
