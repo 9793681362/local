@@ -6,19 +6,62 @@
     <title>4.事件修饰符</title>
     <!-- 引入vue -->
     <script src="../../vue.js"></script>
+    <style>
+      .outer {
+        background-color: skyblue;
+        padding: 20;
+        border-radius: 20px;
+        box-shadow: 0 0 10px;
+      }
+    </style>
   </head>
   <body>
     <!-- 准备好一个容器 -->
-    <div id="demo"><h2>学校：{{school}}</h2></div>
-    <form action="">
-      <button></button>
-    </form>
+    <div id="demo">
+      <h2>学校：{{school}}</h2>
+      <form>
+        <!-- 借助prevent修饰符阻止默认行为 -->
+      <button v-on:click.prevent="showTel1">点我查看联系方式1</button>
+      </form>
+      <hr>
+      <div class="outer" @click="showTel2">
+        <!-- 借助stop修饰符阻止事件冒泡 -->
+        <button @click.stop="showTel2">点我查看联系方式1</button>
+      </div>
+      <hr>
+      <!-- 借助once修饰符，让事件只触发一次 -->
+      <button @click.once="showTel3">点我查看联系方式3</button>
+      <hr>
+      <!-- 修饰符是可以串联的 -->
+       <form action="" @click="showTel4">
+        <button @click.prevent.stop.once="showTel4">点我查看联系方式4</button>
+       </form>
+    </div>
+
     <script>
       new Vue({
         el: '#demo',
         data: {
           school: '尚硅谷'
-        }
+        },
+        methods:{
+          showTel1(event){
+            // 程序员亲自阻止默认行为
+            // event.preventDefault()
+            alert('010-6667788')
+          },
+          showTel2(){
+            // 程序员亲自阻止事件冒泡
+            // event.stopPropagation()
+            alert('010-6667788')
+          },
+          showTel3(){
+            alert('010-6667788')
+          },
+          showTel4(){
+            alert('010-667788')
+          }
+        },
       })
     </script>
   </body>
