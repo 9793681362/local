@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.methods实现</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+     <div id ="demo">
+        <h4>当前的n值是：{{n}}</h4>
+        <button @click="add">点我n+1</button>
+        <hr>
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="text" v-model="lastName"><br>
+        全名：<span>{{getTheFullName()}}</span> <br>
+        全名：<span>{{getTheFullName()}}</span> <br>
+        全名：<span>{{getTheFullName()}}</span> <br>
+        全名：<span>{{getTheFullName()}}</span> <br> 
+        全名：<span>{{getTheFullName()}}</span> <br>
+        全名：<span>{{getTheFullName()}}</span> <br>
+        全名：<span>{{getTheFullName()}}</span> <br>
+        全名：<span>{{getTheFullName()}}</span> <br>
+
+        <!-- <hr> -->
+        <!-- <button @click="test">点我</button>
+        <button @click="test(6,$event)">点我</button>
+        <button>{{test()}}</button> -->
+     </div>
+ 
+     <script>
+        new Vue({
+            el:'#demo',
+            data:{
+                firstName:'zhang',
+                lastName:'san',
+                n:1
+            },
+            methods:{
+                getTheFullName(){
+                    console.log('getTheFullName');
+                    return this.firstName.slice(0,1).toUpperCase() + this.firstName.slice(1) + '-' + this.lastName
+                },
+                add(){
+                    this.n += 1
+                }
+                // #region
+                // test(){
+                //     console.log('test被调用了');
+                //     return('晶晶')
+                // }
+
+                // #endregion
+            
+            }
+        })
+     </script>
+</body>
+</html>
+
+
+<!-- 无关数据的变化，也会引起方法的调用 -->

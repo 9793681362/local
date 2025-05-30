@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.简写形式</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+     <div id ="demo">
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="texts" v-model="lastName"><br>
+        全名：<span>{{fullName}}</span> <br>
+        <button @click="changeFullName">全名直接改为li-si</button>
+     </div>
+
+     <script>
+        let vm = new Vue({
+            el:'#demo',
+            data:{
+                firstName:'zhang',
+                lastName:'san',
+            },
+            methods:{
+            },
+            computed:{
+                fullName:{
+                    get(){
+                        // console.log('get函数调用了',this);
+                        return this.firstName.slice(0,1).toUpperCase() + this.firstName.slice(1) + '-' + this.lastName
+                    },
+                    set(value){
+                        console.log('set函数调用了',value);
+                        let [str1,str2] = value.split('-');
+                        this.firtName = str1
+                        this.lastName = str2
+                        
+                    }
+                }
+            },
+            methods:{
+                changeFullName(){
+                    this.fullName = 'li-si'
+                }
+            }
+        }) 
+
+     </script>
+</body>
+</html>
+
+
+<!-- 无关数据的变化，也会引起方法的调用 -->

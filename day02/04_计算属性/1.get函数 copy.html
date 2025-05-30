@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.get函数</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <!-- 准备好一个容器 -->
+     <div id ="demo">
+        <h4>当前的n值为:{{n}}</h4>
+        <button @click="add">点我n+1</button>
+        <hr>
+        姓：<input type="text" v-model="firstName"><br>
+        名：<input type="text" v-model="lastName"><br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+        全名：<span>{{fullName}}</span> <br>
+     </div>
+ 
+     <script>
+        let vm = new Vue({
+            el:'#demo',
+            data:{
+                firstName:'zhang',
+                lastName:'san',
+                n:1
+            },
+            methods:{
+                add(){
+                    this.n += 1
+                }
+            },
+            computed:{
+                fullName:{
+                    /* 
+                    1.get函数何时调用？—— 有人初次读取fullName时 ,计算fullName时所依赖的数据发生变化时
+                    2.get函数中的this是谁？—— vm
+                    3.get函数是否需要写返回值？—— 必须写
+                    */
+                    get(){
+                        console.log('get函数调用了',this);
+                        return this.firstName.slice(0,1).toUpperCase() + this.firstName.slice(1) + '-' + this.lastName
+                    },
+                    set(){}
+                }
+            }
+        }) 
+        console.log(vm);
+        
+     </script>
+</body>
+</html>
+
+
+<!-- 无关数据的变化，也会引起方法的调用 -->
