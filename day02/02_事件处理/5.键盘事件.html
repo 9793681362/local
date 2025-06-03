@@ -10,6 +10,7 @@
   <body>
     <!-- 准备好一个容器 -->
     <div id="demo">
+<<<<<<< HEAD
       <input
         type="text"
         @keyup.enter="showInput"
@@ -60,6 +61,44 @@
         @keyup.a="showInput"
         placeholder="按下【a】打印内容"
       /><br />
+=======
+        <h3>正常按键 </h3>
+        <input type="text" @keyup.enter="showInput" placeholder="按下回车打印内容"><br>
+        <input type="text" @keyup.delete="showInput" placeholder="按下退格或删除键打印内容"><br>
+        <input type="text" @keyup.esc="showInput" placeholder="按下esc打印内容"><br>
+        <input type="text" @keyup.space="showInput" placeholder="按下空格键打印内容"><br>
+        <input type="text" @keyup.tab="showInput" placeholder="按下tab打印内容"><br>
+        <input type="text" @keyup.up="showInput" placeholder="按下【上】打印内容"><br>
+        <input type="text" @keyup.down="showInput" placeholder="按下【下】打印内容"><br>
+        <input type="text" @keyup.left="showInput" placeholder="按下【左】打印内容"><br>
+        <input type="text" @keyup.right="showInput" placeholder="按下【右边】印内容"><br>
+        <input type="text" @keyup.a="showInput" placeholder="按下【a】打印内容"><br>
+        <hr>
+
+         <!-- 也可以使用键码去指定按键 -->>
+        <h3>也可以使用键码去指定按键</h3>
+        <input type="text" @keyup.13="showInput" placeholder="按下回车打印内容"><br>
+
+        <!-- 四个特殊按键--单独使用 -->
+        <h3>四个特殊按键--单独使用</h3>
+        <input type="text" @keydown.ctrl="showInput" placeholder="按下ctrl打印内容"><br>
+        <input type="text" @keydown.shift="showInput" placeholder="按下shift打印内容"><br>
+        <input type="text" @keydown.alt="showInput" placeholder="按下alt打印内容"><br>
+        <input type="text" @keydown.meta="showInput" placeholder="按下win打印内容"><br>
+
+        <!-- 四个特殊按键--组合使用 -->
+        <h3>四个特殊按键--组合使用</h3>
+        <input type="text" @keyup.ctrl="showInput" placeholder="按下ctrl+其他按键，打印内容"><br>
+        <input type="text" @keyup.shift="showInput" placeholder="按下shift打印内容"><br>
+        <input type="text" @keyup.alt="showInput" placeholder="按下alt打印内容"><br>
+        <input type="text" @keyup.meta="showInput" placeholder="按下win打印内容"><br>
+
+
+
+
+
+
+>>>>>>> 87878b96e0e5459f5ecd8696b36e23a6187bb92d
     </div>
 
     <script>
